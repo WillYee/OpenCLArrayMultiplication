@@ -44,6 +44,8 @@ void CLKernel::build_program()
             throw CLException("Error building: " + program.getBuildInfo<CL_PROGRAM_BUILD_LOG>(device));
         }
 
+        // Build succeeded. Fall through and return
+
     }
     else
     {
