@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
     
     try
     {
-	    compute_time = array_mult.compute();
+        compute_time = array_mult.compute();
     }
     catch (std::runtime_error& e)
     {

@@ -39,16 +39,16 @@ void CLKernel::build_program()
 
         program = cl::Program(context, sources);
 
-        if (program.build({ device }) == CL_SUCCESS)
+        if (program.build({ device }) != CL_SUCCESS)
         {
-            return;
+            throw CLException("Error building: " + program.getBuildInfo<CL_PROGRAM_BUILD_LOG>(device));
         }
 
-        throw CLException("Error building: " + program.getBuildInfo<CL_PROGRAM_BUILD_LOG>(device));
-
     }
-
-    throw FileIOException("Could not open file\n");
+    else
+    {
+        throw FileIOException("Could not open file\n");
+    }
 }
 
 void CLKernel::set_kernel_arg(int arg_num, cl::Buffer& arg)
