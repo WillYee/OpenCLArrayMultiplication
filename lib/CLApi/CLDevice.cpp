@@ -22,13 +22,11 @@ CLDevice::CLDevice()
         }
         else
         {
-
             throw CLException("No devices found\n");
         }
     }
     else
     {
-
         throw CLException("No platforms found\n");
     }
 }
