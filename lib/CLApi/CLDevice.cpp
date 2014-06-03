@@ -19,13 +19,18 @@ CLDevice::CLDevice()
         if (devices.size() > 0)
         {
             default_device = devices[0];
-            return;
         }
+        else
+        {
 
-        throw CLException("No devices found\n");
+            throw CLException("No devices found\n");
+        }
     }
+    else
+    {
 
-    throw CLException("No platforms found\n");
+        throw CLException("No platforms found\n");
+    }
 }
 
 CLDevice::~CLDevice()
